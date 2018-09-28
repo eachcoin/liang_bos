@@ -49,6 +49,12 @@ public class Courier {
 	@ManyToMany(mappedBy = "couriers")
 	private Set<FixedArea> fixedAreas = new HashSet<>();
 
+	@Transient
+	// 防止被生成数据表中的列
+	public String getInfo() {
+		return name + "(" + company + ")";
+	}
+
 	public Integer getId() {
 		return id;
 	}

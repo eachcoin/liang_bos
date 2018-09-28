@@ -4,6 +4,7 @@ import cn.itcast.bos.domain.base.Courier;
 import cn.itcast.bos.domain.base.Standard;
 import cn.itcast.bos.service.base.CourierService;
 import cn.itcast.bos.web.action.common.BaseAction;
+import com.opensymphony.xwork2.ActionContext;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
@@ -110,4 +111,14 @@ public class CourierAction extends BaseAction<Courier> {
 
 		return SUCCESS;
 	}
+
+	//查询未关联的快递员
+    @Action(value = "courier_findnoassociation",results = { @Result(type = "json") })
+    public String findnoassociation() {
+        List<Courier> couriers = courierService.findNoAssociation();
+        // 将查询快递员列表 压入值栈
+        ActionContext.getContext().getValueStack().push(couriers);
+        return SUCCESS;
+    }
+
 }

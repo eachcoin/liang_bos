@@ -30,3 +30,11 @@ hs_err_pid*
 /common_parent/.settings/
 /common_parent/.project
 
+/crm_domain/.settings/
+/crm_domain/target/
+/crm_domain/.classpath
+/crm_domain/.project
+/crm_management/target/
+/crm_management/.classpath
+/crm_management/.project
+/crm_management/.settings/

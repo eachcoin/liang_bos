@@ -5,6 +5,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 
+import java.util.List;
+
 /**
  * 快递员操作接口
  * 
@@ -23,4 +25,5 @@ public interface CourierService {
 	// 批量作废
 	public void delBatch(String[] idArray);
 
+    List<Courier> findNoAssociation();
 }

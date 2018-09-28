@@ -12,5 +12,4 @@ public interface CourierRepository extends JpaRepository<Courier, Integer>,
 	@Query(value = "update Courier set deltag='1' where id = ?")
 	@Modifying
 	void updateDelTag(Integer id);
-
 }
