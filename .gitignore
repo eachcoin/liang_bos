@@ -38,3 +38,7 @@ hs_err_pid*
 /crm_management/.classpath
 /crm_management/.project
 /crm_management/.settings/
+/bos_fore/.project
+/bos_fore/.classpath
+/bos_fore/.settings/
+/bos_fore/target/
