@@ -32,4 +32,23 @@ public interface CustomerService {
 	void associationCustomersToFixedArea(
             @QueryParam("customerIdStr") String customerIdStr,
             @QueryParam("fixedAreaId") String fixedAreaId);
+
+	//保存客户的操作
+	@Path("/customer")
+	@POST
+    @Consumes({ "application/xml", "application/json" })
+    void regist(Customer customer);
+
+	//查询用户
+    @Path("/customer/telephone/{telephone}")
+    @GET
+    @Consumes({ "application/xml", "application/json" })
+    Customer findByTelephone(@PathParam("telephone") String telephone);
+
+    //修改Type
+    @Path("/customer/updatetype/{telephone}")
+    @GET
+	@Consumes({ "application/xml", "application/json" })
+    @Produces({ "application/xml", "application/json" })
+    void updateType(@PathParam("telephone") String telephone);
 }
