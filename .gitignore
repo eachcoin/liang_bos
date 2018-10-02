@@ -42,3 +42,7 @@ hs_err_pid*
 /bos_fore/.classpath
 /bos_fore/.settings/
 /bos_fore/target/
+/bos_sms/.settings/
+/bos_sms/target/
+/bos_sms/.classpath
+/bos_sms/.project

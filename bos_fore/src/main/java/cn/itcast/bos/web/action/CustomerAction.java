@@ -39,6 +39,9 @@ import java.util.concurrent.TimeUnit;
 @Controller
 @Scope("prototype")
 public class CustomerAction extends BaseAction<Customer> {
+    @Autowired
+    @Qualifier("jmsQueueTemplate")
+    private JmsTemplate jmsTemplate;
 
     @Action(value = "customer_sendSms")
     public String sendSms() throws IOException {
@@ -49,16 +52,33 @@ public class CustomerAction extends BaseAction<Customer> {
         ServletActionContext.getRequest().getSession()
                 .setAttribute(model.getTelephone(), mobile_code);
 
-        String content = new String("您的验证码是：" + mobile_code + "。请不要把验证码泄露给其他人。");
+        final String content = new String("您的验证码是：" + mobile_code + "。请不要把验证码泄露给其他人。");
+
+        jmsTemplate.send("bos_sms", new MessageCreator() {
+            @Override
+            public Message createMessage(Session session) throws JMSException {
+                MapMessage mapMessage = session.createMapMessage();
+                mapMessage.setString("telephone", model.getTelephone());
+                mapMessage.setString("content", content);
+                return mapMessage;
+            }
+        });
+        return NONE;
+
+
+
+
+
+
         //String code = SmsUtils.sendSms(model.getTelephone(), content);
-        String code = "2";
-        System.out.println(code);
-        if ("2".equals(code)) {
-            System.out.println("发送成功");
-            return NONE;
-        } else {
-            throw new RuntimeException("发送失败" + code);
-        }
+//        String code = "2";
+//        System.out.println(code);
+//        if ("2".equals(code)) {
+//            System.out.println("发送成功");
+//            return NONE;
+//        } else {
+//            throw new RuntimeException("发送失败" + code);
+//        }
 
     }
 
