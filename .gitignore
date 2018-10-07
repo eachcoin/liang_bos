@@ -46,3 +46,4 @@ hs_err_pid*
 /bos_sms/target/
 /bos_sms/.classpath
 /bos_sms/.project
+/bos_domain/target/

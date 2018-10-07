@@ -358,7 +358,7 @@
         </dependency>
     </dependencies>
 
-    <build>
+    <!--<build>
         <finalName>bos</finalName>
         <pluginManagement>
             <plugins>
@@ -375,6 +375,6 @@
                 </plugin>
             </plugins>
         </pluginManagement>
-    </build>
+    </build>-->
 
 </project>

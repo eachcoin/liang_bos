@@ -13,7 +13,7 @@
 
     <build>
         <finalName>bos_management</finalName>
-        <pluginManagement>
+       <!-- <pluginManagement>
             <plugins>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -27,7 +27,7 @@
                     </configuration>
                 </plugin>
             </plugins>
-        </pluginManagement>
+        </pluginManagement>-->
         <plugins>
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
@@ -43,10 +43,10 @@
             <artifactId>crm_domain</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-    <!--<dependency>
+    <dependency>
         <groupId>cn.itcast.maven</groupId>
         <artifactId>bos_domain</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-    </dependency>-->
+    </dependency>
 </dependencies>
 </project>

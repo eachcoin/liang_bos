@@ -21,4 +21,10 @@
 	
 	<!-- 引入外部数据文件 -->
 	<import resource="applicationContext-dataSource.xml"/>
+
+	<!-- 引入WebService配置 -->
+	<import resource="applicationContext-webService.xml"/>
+
+    <!-- 引入quartz配置 -->
+    <import resource="applicationContext-quartz.xml"/>
 </beans>
