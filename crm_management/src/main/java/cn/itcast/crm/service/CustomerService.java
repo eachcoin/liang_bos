@@ -51,4 +51,17 @@ public interface CustomerService {
 	@Consumes({ "application/xml", "application/json" })
     @Produces({ "application/xml", "application/json" })
     void updateType(@PathParam("telephone") String telephone);
+
+    //登录操作
+	@Path("/customer/login")
+	@GET
+    @Consumes({ "application/xml", "application/json" })
+	@Produces({ "application/xml", "application/json" })
+	Customer updateType(@QueryParam("telephone") String telephone,@QueryParam("password") String password);
+
+	//根据地址查询定区编号
+    @Path("/customer/findFixedAreaIdByAddress")
+    @GET
+    @Consumes({ "application/xml", "application/json" })
+    String findFixedAreaIdByAddress(@QueryParam("address") String address);
 }

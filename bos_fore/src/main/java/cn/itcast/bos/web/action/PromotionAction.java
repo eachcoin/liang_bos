@@ -19,7 +19,6 @@ import org.springframework.stereotype.Controller;
 import javax.ws.rs.core.MediaType;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.OutputStreamWriter;
 import java.util.HashMap;
 import java.util.Map;
@@ -28,16 +27,15 @@ import java.util.Map;
 @Namespace("/")
 @Controller
 @Scope("prototype")
-@SuppressWarnings("all")
 public class PromotionAction extends BaseAction<Promotion> {
 
-	@Action(value = "promotion_pageQuery", results = { @Result(name = "success", type = "json") })
+	@Action(value = "promotion_pageQuery", results = { @Result(type = "json") })
 	public String pageQuery() {
 
 		// 基于WebService 获取 bos_management的 活动列表 数据信息
 		PageBean<Promotion> pageBean = WebClient
 				.create(Constants.BOS_MANAGEMENT_URL
-						+ "/bos_management/services/promotionService/pageQuery?page="
+						+ "/services/promotionService/pageQuery?page="
 						+ page + "&rows=" + rows)
 				.accept(MediaType.APPLICATION_JSON).get(PageBean.class);
 

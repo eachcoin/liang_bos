@@ -23,7 +23,7 @@ public class PromotionJob implements Job {
 			throws JobExecutionException {
 		System.out.println("活动过期处理程序执行....");
 		// 每分钟执行一次，当前时间 大于 promotion数据表 endDate， 活动已经过期，设置status='2'
-		promotionService.updateStatus(new Date());
+		//promotionService.updateStatus(new Date());
 	}
 
 }

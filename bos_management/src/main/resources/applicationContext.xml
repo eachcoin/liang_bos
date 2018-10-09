@@ -27,4 +27,7 @@
 
     <!-- 引入quartz配置 -->
     <import resource="applicationContext-quartz.xml"/>
+
+	<!-- 引入mq配置 -->
+	<import resource="applicationContext-mq.xml"/>
 </beans>

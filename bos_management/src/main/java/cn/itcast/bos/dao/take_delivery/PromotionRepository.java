@@ -9,7 +9,7 @@ import java.util.Date;
 
 public interface PromotionRepository extends JpaRepository<Promotion, Integer> {
 
-	@Query("update Promotion set status='2' where endDate<? and status='1'")
+	@Query("update Promotion set status='2' where endDate>?1 and status='1'")
 	@Modifying
 	void updateStatus(Date now);
 
