@@ -113,6 +113,11 @@ public class OrderServiceImpl implements OrderService {
 		orderRepository.save(order);
 	}
 
+	@Override
+	public Order findByOrderNum(String orderNum) {
+		return orderRepository.findByOrderNum(orderNum);
+	}
+
 	// 生成工单，发送短信
 	private void generateWorkBill(final Order order) {
 		// 生成工单
